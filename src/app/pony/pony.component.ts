@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
 import { PonyModel } from '../models/pony.model';
 
 @Component({
