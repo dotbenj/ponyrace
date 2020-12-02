@@ -1,0 +1,15 @@
+<h1>Log in</h1>
+<form (ngSubmit)="authenticate()" #loginForm="ngForm">
+  <div class="form-group">
+    <label for="login" id="login-label">Login</label>
+    <input type="text" class="form-control" name="login" required [(ngModel)]="credentials.login" #login="ngModel">
+    <div class="error-message" *ngIf="login.dirty && login.hasError('required')">Login is required</div>
+  </div>
+  <div class="form-group">
+    <label for="password" id="password-label">Password</label>
+    <input type="password" class="form-control" name="password" required [(ngModel)]="credentials.password" #password="ngModel">
+    <div class="error-message" *ngIf="password.dirty && password.hasError('required')">Password is required</div>
+  </div>
+  <button type="submit" [disabled]="loginForm.invalid">Login</button>
+  <div *ngIf="authenticationFailed" class="error-message alert alert-danger">Nope, try again</div>
+</form>
